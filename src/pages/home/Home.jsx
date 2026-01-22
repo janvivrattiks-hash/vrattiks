@@ -5,7 +5,6 @@ import Whysmartbuisness from './sections/Whysmartbuisness'
 import Cofounders from './sections/Cofounders'
 import Businessfastgrow from './sections/Businessfastgrow'
 import Footer from '../../components/Footer'
-import IntroductionSpeech from '../../components/IntroductionSpeech'
 
 export default function Home() {
   return (

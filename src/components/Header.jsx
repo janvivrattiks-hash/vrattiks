@@ -6,7 +6,7 @@ import { IoMdClose } from 'react-icons/io';
 import IntroductionSpeech from './IntroductionSpeech';
 
 export default function Header() {
-    {/*modal open*/ }
+    // modal open
     const [open, setOpen] = useState(false);
 
     const [menu, setMenu] = useState(false);
@@ -89,9 +89,9 @@ export default function Header() {
                     focus:border-[#b79af3]' name='email' />
 
                             <div className='flex gap-3 mt-4'>
-                                <button onClick={() => setOpen(false)} class="hover:bg-[#1d2839] text-center py-2 px-4 border border-white/20 text-white rounded-md font-urbanist w-full">
+                                <button onClick={() => setOpen(false)} className="hover:bg-[#1d2839] text-center py-2 px-4 border border-white/20 text-white rounded-md font-urbanist w-full">
                                     Cancel</button>
-                                <button class="text-center py-2 px-4 bg-[#5e48e8] text-white rounded-md font-urbanist w-full">
+                                <button className="text-center py-2 px-4 bg-[#5e48e8] text-white rounded-md font-urbanist w-full">
                                     Submit Request</button>
                             </div>
                         </form>

@@ -3,7 +3,7 @@ import businessactfastgrow from '../../../assests/img/feature/businesses-that-ac
 import { IoMdClose } from 'react-icons/io'
 
 export default function Businessactfastgrow() {
-    {/*modal open*/ }
+    // modal open
     const [open, setOpen] = useState(false);
 
     return (
@@ -43,9 +43,9 @@ export default function Businessactfastgrow() {
                                         focus:border-[#b79af3]' name='email' />
 
                             <div className='flex gap-3 mt-4'>
-                                <button onClick={() => setOpen(false)} class="hover:bg-[#1d2839] text-center py-2 px-4 border border-white/20 text-white rounded-md font-urbanist w-full">
+                                <button onClick={() => setOpen(false)} className="hover:bg-[#1d2839] text-center py-2 px-4 border border-white/20 text-white rounded-md font-urbanist w-full">
                                     Cancel</button>
-                                <button class="text-center py-2 px-4 bg-[#5e48e8] text-white rounded-md font-urbanist w-full">
+                                <button className="text-center py-2 px-4 bg-[#5e48e8] text-white rounded-md font-urbanist w-full">
                                     Submit Request</button>
                             </div>
                         </form>
