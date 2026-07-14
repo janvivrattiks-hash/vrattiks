@@ -15,7 +15,7 @@ export default function Header() {
 
     return (
         <div>
-            <IntroductionSpeech text={websiteIntroText} />
+            {/* <IntroductionSpeech text={websiteIntroText} /> */}
 
             <header className='py-2 fixed top-0 left-0 w-full bg-black z-10'>
                 <div className='container mx-auto lg:px-20 px-7'>
