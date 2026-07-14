@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useRef, useState } from 'react';
 import { RiRobot3Fill } from 'react-icons/ri';
 
 const rawBaseUrl = process.env.REACT_APP_CHATBOT_BASE_URL;
@@ -44,6 +44,8 @@ function CloseIcon() {
 }
 
 export default function ChatWidget() {
+  const dialogRef = useRef(null);
+  const launcherRef = useRef(null);
   const [isOpen, setIsOpen] = useState(false);
   const [hasOpened, setHasOpened] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
@@ -57,6 +59,26 @@ export default function ChatWidget() {
       );
     }
   }, [chatUrl]);
+
+  useEffect(() => {
+    if (!isOpen) {
+      return undefined;
+    }
+
+    const closeOnOutsideClick = (event) => {
+      if (
+        dialogRef.current?.contains(event.target) ||
+        launcherRef.current?.contains(event.target)
+      ) {
+        return;
+      }
+
+      setIsOpen(false);
+    };
+
+    document.addEventListener('mousedown', closeOnOutsideClick);
+    return () => document.removeEventListener('mousedown', closeOnOutsideClick);
+  }, [isOpen]);
 
   if (!chatUrl) {
     return null;
@@ -74,11 +96,12 @@ export default function ChatWidget() {
 
   return (
     <aside
-      className="fixed bottom-6 right-6 z-[99999] font-ibm text-left text-[#17131f] max-[599px]:bottom-3 max-[599px]:right-3"
+      className="group fixed bottom-6 right-6 z-[99999] font-ibm text-left text-[#17131f] max-[599px]:bottom-3 max-[599px]:right-3"
       aria-label="Website chatbot"
     >
       {hasOpened && (
         <section
+          ref={dialogRef}
           id="website-chatbot-dialog"
           className={`absolute bottom-[76px] right-0 flex h-[600px] max-h-[calc(100vh-124px)] w-[390px] origin-bottom-right flex-col overflow-hidden rounded-[20px] border border-[#1f182c17] bg-white shadow-[0_22px_60px_rgba(0,0,0,0.28)] transition-[opacity,transform,visibility] duration-200 motion-reduce:transition-none max-[599px]:fixed max-[599px]:bottom-[84px] max-[599px]:left-3 max-[599px]:right-3 max-[599px]:top-3 max-[599px]:h-auto max-[599px]:max-h-none max-[599px]:w-auto max-[599px]:rounded-[18px] ${
             isOpen
@@ -162,7 +185,17 @@ export default function ChatWidget() {
         </section>
       )}
 
+      {!isOpen && (
+        <div
+          className="pointer-events-none invisible absolute bottom-[76px] right-0 translate-y-1 whitespace-nowrap rounded-xl border border-[#e7dcf7] bg-white px-4 py-2.5 text-sm font-medium text-[#31283d] opacity-0 shadow-[0_8px_24px_rgba(38,22,58,0.2)] transition-[opacity,transform,visibility] duration-150 group-hover:visible group-hover:translate-y-0 group-hover:opacity-100 group-focus-within:visible group-focus-within:translate-y-0 group-focus-within:opacity-100 motion-reduce:transition-none after:absolute after:-bottom-1.5 after:right-6 after:h-3 after:w-3 after:rotate-45 after:border-b after:border-r after:border-[#e7dcf7] after:bg-white"
+          role="tooltip"
+        >
+          How can I help?
+        </div>
+      )}
+
       <button
+        ref={launcherRef}
         className="ml-auto flex h-[60px] w-[60px] cursor-pointer items-center justify-center rounded-full border-0 bg-gradient-to-br from-[#8e49f5] to-[#6822d2] text-white shadow-[0_12px_30px_rgba(74,23,148,0.42)] transition-[transform,box-shadow] duration-150 hover:-translate-y-0.5 hover:shadow-[0_15px_34px_rgba(74,23,148,0.5)] focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[#b79af3bf] motion-reduce:transition-none"
         type="button"
         onClick={toggleWidget}
