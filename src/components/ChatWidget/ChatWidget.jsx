@@ -110,7 +110,7 @@ export default function ChatWidget() {
         <section
           ref={dialogRef}
           id="website-chatbot-dialog"
-          className={`absolute bottom-[104px] right-0 flex h-[600px] max-h-[calc(100vh-152px)] w-[390px] origin-bottom-right flex-col overflow-hidden rounded-[20px] border border-[#1f182c17] bg-white shadow-[0_22px_60px_rgba(0,0,0,0.28)] transition-[opacity,transform,visibility] duration-200 motion-reduce:transition-none max-[599px]:fixed max-[599px]:bottom-[112px] max-[599px]:left-3 max-[599px]:right-3 max-[599px]:top-3 max-[599px]:h-auto max-[599px]:max-h-none max-[599px]:w-auto max-[599px]:rounded-[18px] ${
+          className={`absolute bottom-[88px] right-0 flex h-[520px] max-h-[calc(100vh-132px)] w-[350px] origin-bottom-right flex-col overflow-hidden rounded-[20px] border border-[#1f182c17] bg-white shadow-[0_22px_60px_rgba(0,0,0,0.28)] transition-[opacity,transform,visibility] duration-200 motion-reduce:transition-none max-[599px]:fixed max-[599px]:bottom-[96px] max-[599px]:left-4 max-[599px]:right-4 max-[599px]:top-8 max-[599px]:h-auto max-[599px]:max-h-none max-[599px]:w-auto max-[599px]:rounded-[18px] ${
             isOpen
               ? 'visible translate-y-0 scale-100 opacity-100 pointer-events-auto'
               : 'invisible translate-y-4 scale-[0.97] opacity-0 pointer-events-none'
@@ -178,7 +178,7 @@ export default function ChatWidget() {
               }`}
               src={chatUrl}
               title="Website chatbot"
-              allow="clipboard-write"
+              allow="microphone; clipboard-write"
               onLoad={() => {
                 setIsLoaded(true);
                 setHasLoadError(false);
@@ -203,7 +203,7 @@ export default function ChatWidget() {
 
       <button
         ref={launcherRef}
-        className="relative ml-auto flex h-[88px] w-[88px] cursor-pointer items-center justify-center rounded-full border-0 bg-transparent p-0 text-white transition-transform duration-150 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[#b79af3bf] motion-reduce:transition-none"
+        className="relative ml-auto flex h-[72px] w-[72px] cursor-pointer items-center justify-center rounded-full border-0 bg-transparent p-0 text-white transition-transform duration-150 hover:-translate-y-0.5 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[#b79af3bf] motion-reduce:transition-none"
         type="button"
         onClick={toggleWidget}
         aria-label={isOpen ? 'Close chatbot' : 'Open chatbot'}
@@ -221,7 +221,7 @@ export default function ChatWidget() {
           aria-hidden="true"
         />
         <span className="relative flex h-full w-full items-center justify-center overflow-hidden rounded-full bg-gradient-to-br from-[#8e49f5] to-[#6822d2] shadow-[0_12px_30px_rgba(74,23,148,0.42)] transition-shadow duration-150 hover:shadow-[0_15px_34px_rgba(74,23,148,0.5)]">
-          {isOpen ? <CloseIcon /> : <ChatIcon className="h-[80px] w-[80px] scale-[1.2] object-contain" />}
+          {isOpen ? <CloseIcon /> : <ChatIcon className="h-[66px] w-[66px] scale-[1.2] object-contain" />}
         </span>
       </button>
     </aside>

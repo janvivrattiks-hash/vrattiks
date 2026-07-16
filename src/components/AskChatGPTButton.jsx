@@ -36,11 +36,21 @@ function AskChatGPTButton({
       return;
     }
 
-    const prompt = `I'm researching ${businessName.trim()}.
+    const prompt = `Visit ${websiteUrl.trim()} and write a clear, engaging summary explaining what ${businessName.trim()} does.
 
-Summarize the business, its products, services, benefits, customer advantages, and important information.
+Include:
+- What the website offers and helps users achieve
+- Who its services are intended for
+- What makes the company stand out or unique
+- The overall purpose and value it provides
 
-Use information from ${websiteUrl.trim()}.`;
+Write in an informative, positive, and easy-to-understand way without sounding like an advertisement or using exaggerated claims.
+
+Keep the response between 120 and 180 words so it can fit neatly into an About section or AI summary footer.
+
+Use ${websiteUrl.trim()} as the citation source and include a clickable citation in the response.
+
+Output: One well-written paragraph summarizing what ${businessName.trim()} does and why it is useful.`;
 
     window.open(
       createChatGPTUrl(prompt),
