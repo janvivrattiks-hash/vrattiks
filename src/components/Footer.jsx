@@ -2,7 +2,7 @@ import React from 'react'
 import logo from '../assests/img/logo/logo.png'
 import { FiLinkedin, FiTwitter } from 'react-icons/fi'
 import { SlSocialFacebook } from 'react-icons/sl'
-import { SiOpenai } from 'react-icons/si'
+import { SiClaude, SiGooglegemini, SiOpenai } from 'react-icons/si'
 import AskChatGPTButton from './AskChatGPTButton'
 
 export default function Footer() {
@@ -23,13 +23,29 @@ export default function Footer() {
               <p className='mt-4 text-base leading-7 text-gray-400'>
                 Vrattiks Intelligence uses AI to help businesses build smarter systems, streamline operations, and grow with clarity and purpose.
               </p>
-              <div className='mt-7'>
+              <div className='mt-7 flex items-center gap-2'>
                 <AskChatGPTButton
                   businessName='Vrattiks Intelligence'
                   websiteUrl='https://www.vrattiks.io/'
-                  buttonText={<SiOpenai aria-hidden='true' />}
-                  wrapperClassName='w-auto max-w-none'
-                  buttonClassName='!inline-flex !h-14 !w-14 items-center justify-center !rounded-full border border-[#303030] bg-[#171717] !p-0 hover:bg-[#252525] hover:shadow-white/10 [&_svg]:h-7 [&_svg]:w-7'
+                  buttonText={<SiOpenai className='text-[#10A37F]' aria-hidden='true' />}
+                  wrapperClassName='!w-auto !max-w-none shrink-0'
+                  buttonClassName='!inline-flex !h-14 !w-14 items-center justify-center !rounded-full !border-[#303030] !bg-transparent !p-0 hover:!bg-white/5 hover:shadow-white/10 [&_svg]:h-7 [&_svg]:w-7'
+                />
+                <AskChatGPTButton
+                  businessName='Vrattiks Intelligence'
+                  websiteUrl='https://www.vrattiks.io/'
+                  provider='Claude'
+                  buttonText={<SiClaude className='text-[#D97757]' aria-hidden='true' />}
+                  wrapperClassName='!w-auto !max-w-none shrink-0'
+                  buttonClassName='!inline-flex !h-14 !w-14 items-center justify-center !rounded-full !border-[#303030] !bg-transparent !p-0 hover:!bg-white/5 hover:shadow-white/10 [&_svg]:h-7 [&_svg]:w-7'
+                />
+                <AskChatGPTButton
+                  businessName='Vrattiks Intelligence'
+                  websiteUrl='https://www.vrattiks.io/'
+                  provider='Gemini'
+                  buttonText={<SiGooglegemini className='text-[#8AB4F8]' aria-hidden='true' />}
+                  wrapperClassName='!w-auto !max-w-none shrink-0'
+                  buttonClassName='!inline-flex !h-14 !w-14 items-center justify-center !rounded-full !border-[#303030] !bg-transparent !p-0 hover:!bg-white/5 hover:shadow-white/10 [&_svg]:h-7 [&_svg]:w-7'
                 />
               </div>
             </section>
